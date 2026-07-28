@@ -19,82 +19,85 @@ Deck: `main.pdf` (31 slides) — this script uses only the **10 core slides**.
 | Time | Slide | The one thing that must land |
 |---|---|---|
 | 0:00–0:30 | 1 → 4 | Drowsy driving kills: 3 seconds = 100 metres with nobody driving |
-| 0:30–1:00 | 6 | Existing solutions: expensive, need a network, invade privacy |
-| 1:00–1:35 | 8 → 10 | What the product is; four steps, all running locally |
-| 1:35–2:05 | 11 | Why the Arduino UNO Q specifically — the dual-brain fit |
-| 2:05–2:45 | 12 | Escalating alert **+ false-alarm defence** |
-| 2:45–3:40 | 16 → 17 | TRL 4, not starting from zero **+ performance defence** |
-| 3:40–4:15 | 25 → 26 | Fleets first, then every alertness-critical industry |
-| 4:15–5:00 | 30 | Four criteria summarised + the ask + emotional close |
+| 0:30–0:55 | 6 | Existing solutions: expensive, need a network, invade privacy |
+| 0:55–1:25 | 8 + 10 | What the product is; four steps, all running locally |
+| 1:25–1:50 | 11 | Why the Arduino UNO Q specifically — the dual-brain fit |
+| 1:50–2:25 | 12 | Escalating alert **+ false-alarm defence** |
+| 2:25–3:40 | 16 → 17 | TRL 4, not starting from zero **+ performance defence** |
+| 3:40–4:05 | 25 → 26 | Fleets first, then every alertness-critical industry |
+| 4:05–4:55 | 30 | Summary + the ask + emotional close |
 
 **Rule:** two sentences per slide, maximum. Never read the slide aloud.
 
+> **Length:** 590 words. At a natural non-native pace of ~120 words per minute this
+> lands at **4:55**. If your trial run still overshoots, cut in this order:
+> (1) the second sentence of the Application-domains block, (2) the "Four —"
+> bullet in slide 17, (3) the first sentence of the summary. Never cut the hook,
+> the two defences, or the ask.
+
 ---
 
-## 2. The script (~730 words ≈ 5:00)
+## 2. The script (590 words ≈ 4:55)
 
 ### [0:00] Slide 1 — Title
-> We are team **ML_IoT_Love50**, and this is **DrowsyGuard**.
+> We are team **ML_IoT_Love50**. This is **DrowsyGuard**.
 > Let me start with a number.
 
-*(Cut straight to slide 4 — no long introductions)*
+*(Cut straight to slide 4 — no long introduction)*
 
 ### [0:08] Slide 4 — Drowsy driving is a silent killer
 > A driver who micro-sleeps for **three seconds** at ninety kilometres an hour travels **one hundred metres with nobody driving**.
 >
 > *(pause one beat)*
 >
-> Those three seconds separate a normal delivery from a fatal crash. The risk is highest for long-haul, coach and ride-hailing drivers — the people who drive at night, on long shifts.
+> Those three seconds separate a normal delivery from a fatal crash. The risk is highest for long-haul, coach and ride-hailing drivers — the people who drive at night.
 
 ### [0:30] Slide 6 — Existing solutions leave a gap
-> This problem is already solved — but only for the wealthy. Driver monitoring ships on premium cars. Cloud dashcams need a network, they add latency, and they upload the driver's face to a server.
+> This problem is already solved — but only for the wealthy. Driver monitoring ships on premium cars. Cloud dashcams need a network, add latency, and upload the driver's face to a server.
 >
-> The gap is clear: **there is no low-cost add-on that fits any vehicle, runs fully offline, and collects nothing.**
+> The gap: **no low-cost add-on that fits any vehicle, runs fully offline, and collects nothing.**
 
-### [1:00] Slide 8 — DrowsyGuard in one line
-> That is **DrowsyGuard**. A small device on the dashboard, a camera facing the driver, detecting drowsiness **on the edge**, and waking the driver before it is too late.
-
-### [1:15] Slide 10 — How it works
-> Four steps: capture the face, analyse it, score the drowsiness level from zero to three, then act.
+### [0:55] Slides 8 + 10 — The product and how it works
+> That is **DrowsyGuard**: a small device on the dashboard, a camera facing the driver.
 >
-> **All four steps run locally.** No frame ever leaves the unit — so the system reacts instantly, and the driver's face is never uploaded anywhere.
+> Four steps — capture, analyse, score the drowsiness level from zero to three, then act. **All four run locally.** No frame ever leaves the unit, so the system reacts instantly and the driver's face is never uploaded.
 
-### [1:35] Slide 11 — System architecture
-> And this is exactly why we chose the **Arduino UNO Q**. The board has two brains. **Linux on the Qualcomm QRB2210** runs YOLO for eye and face detection. The **STM32U585 microcontroller** handles real-time control in under one hundred milliseconds.
+### [1:25] Slide 11 — System architecture
+> This is why we chose the **Arduino UNO Q**. It has two brains: a **Qualcomm processor running Linux** does the AI vision, and a **microcontroller** handles the alerts in real time, in under one hundred milliseconds.
 >
-> Our problem needs precisely those two things, on one board. This is not hardware chosen for decoration — it matches the architecture of the problem.
+> Our problem needs exactly those two things, on one board.
 
-### [2:05] Slide 12 — Escalating alert ladder *(+ false-alarm defence)*
-> The alert **escalates through four levels**: a soft beep, then seat vibration and cold air, and finally a loud alarm with hazard lights and an SOS with GPS coordinates.
+### [1:50] Slide 12 — Escalating alert ladder *(+ false-alarm defence)*
+> The alert **escalates through four levels**: a soft beep, then seat vibration and cold air, then a loud alarm with hazard lights and an SOS with GPS.
 >
-> That escalation is also how we handle **false alarms**. The decision never rests on a single frame — it is based on **PERCLOS, the accumulated eye-closure ratio over a sixty-second window**. Level one is only a soft beep, so an error costs nothing. And the driver always has the **"I am awake"** button to acknowledge — which we then use to personalise their threshold.
+> That escalation is also how we handle **false alarms**. The decision never rests on a single frame — it uses **PERCLOS, the eye-closure ratio over a sixty-second window**. Level one is only a beep, so an error costs nothing. And the driver can always press **"I am awake"**.
 
-### [2:45] Slide 16 — Technology Readiness Level ⭐
-> On technical readiness: today we are at **TRL 4 — validated in the lab**. Our target for Hack-Day is **TRL 6 — running in a real vehicle cabin**.
+### [2:25] Slide 16 — Technology Readiness Level ⭐
+> On technical readiness: today we are at **TRL 4, validated in the lab**. Our target for Hack-Day is **TRL 6 — running in a real cabin**.
 
-### [3:00] Slide 17 — What already works today *(+ performance defence)*
+### [2:40] Slide 17 — What already works today *(+ performance defence)*
 > And we are **not starting from zero**. Four things are already in place.
 >
 > **One** — this workload is **already proven on the UNO Q itself**: Arduino App Lab ships a working on-camera face detector on this exact board.
-> **Two** — **the datasets are secured**: labelled eye-state images, YOLO-ready.
-> **Three** — **the toolchain is installed**: Arduino CLI, Flasher CLI, and the Qualcomm AI Hub client.
-> **Four** — **the alert logic is specified**: PERCLOS thresholds and the four levels.
+> **Two** — the **datasets are secured**, labelled and YOLO-ready.
+> **Three** — the **toolchain is installed**: Arduino CLI, Flasher CLI, and Qualcomm AI Hub.
+> **Four** — the **alert logic is specified**: PERCLOS thresholds and the four levels.
 >
-> On performance, we know the QRB2210 has no large NPU, so we use a **YOLO nano backbone quantized to INT8**. And this problem does not demand thirty frames per second — because PERCLOS runs on a sixty-second window, **five to ten frames per second is enough**. Our first task with the board is to measure the real figure and report it.
+> On performance, we know this chip has **no dedicated AI accelerator**, so we use a **small, quantized version of YOLO**. And this problem does not need thirty frames per second — PERCLOS runs on a sixty-second window, so **five to ten is enough**.
 >
-> What we are missing is exactly the **hardware** — to measure real performance, wire the actuators, and close the loop inside a cabin.
+> What we are missing is exactly the **hardware**.
 
 ### [3:40] Slides 25 → 26 — Application domains
-> Our first market is **commercial fleets**: logistics, coach operators, ride-hailing. They already pay for safety and telematics, they buy in volume, and they measure the return directly in incidents avoided.
+> Our first market is **commercial fleets** — logistics, coaches, ride-hailing. They already pay for safety, they buy in volume, and they measure the return in incidents avoided.
 >
-> But the core technology travels much further — heavy machinery operators, train drivers, ship watchkeepers, mine haul trucks. **Anywhere a human being must stay alert.** Only the mounting and the level-three action change.
+> But the core travels further: heavy machinery, train drivers, ship watchkeepers, mine haul trucks. **Anywhere a human must stay alert.**
 
-### [4:15] Slide 30 — In summary
-> To summarise. The **problem** is real and lethal. The **product** detects on-device and alerts in under two hundred milliseconds, with no network and no privacy cost. Our **technical readiness** is TRL 4, built on blocks that are already proven. The **application domains** start with fleets and extend to every alertness-critical industry.
+### [4:05] Slide 30 — Summary and the ask
+> To summarise: the **problem** is real and lethal. The **product** detects on-device and alerts in under two hundred milliseconds, with no network and no privacy cost. We are at **TRL 4** on proven blocks, starting with fleets.
 >
-> What we ask for is the **loaned Arduino UNO Q, access to Qualcomm's SDKs, and mentorship from Qualcomm engineers** — to turn a validated pipeline into a working in-cabin prototype by the sixteenth of August.
+> What we ask for is the **loaned Arduino UNO Q, access to Qualcomm's SDKs, and mentorship from Qualcomm engineers** — to reach a working in-cabin prototype by the sixteenth of August.
 
-### [4:45] Close
+### [4:40] Close
 > Three seconds of micro-sleep is one hundred metres with nobody driving. We want to win those three seconds back.
 >
 > **Thank you for watching.**
@@ -114,16 +117,53 @@ Non-native delivery breaks most often on numbers. Say them exactly like this:
 | <200 ms | "under two hundred milliseconds" |
 | 60-second window | "sixty-second window" |
 | 5–10 FPS | "five to ten frames per second" |
-| INT8 | "int-eight" |
 | TRL 4 / TRL 6 | "T-R-L four" / "T-R-L six" |
-| QRB2210 | "Q-R-B twenty-two ten" |
-| STM32U585 | "S-T-M thirty-two U five-eight-five" |
+| PERCLOS | "PER-close" |
 | 16 August | "the sixteenth of August" |
 | ML_IoT_Love50 | "M-L I-o-T Love Fifty" |
+
+**Part numbers are deliberately not spoken.** QRB2210, STM32U585, INT8 and YOLOv8
+all stay **on the slides**, where the judges can read them — but saying them aloud
+costs delivery fluency and buys no extra credit. Say "a Qualcomm processor running
+Linux", "a microcontroller", "a small quantized model" instead. The slide carries
+the rigour; your voice carries the story.
 
 ---
 
 ## 4. Recording guide
+
+### OBS Studio setup (this machine)
+
+Installed: **OBS Studio 32.1.0** on Ubuntu 26.04, Wayland + GNOME.
+Detected hardware: webcam **Chicony USB2.0 Camera**, mics **AB17X USB Audio** (default) and built-in analog.
+
+**Scene setup — do this once:**
+
+1. **Sources → + Screen Capture (PipeWire)**
+   Wayland requires this one; do *not* pick XSHM. GNOME will pop up a screen-share
+   permission dialog — allow it, and tick "remember".
+   Share the PDF viewer window running the slides in presentation mode.
+2. **Sources → + Video Capture Device** → *Chicony USB2.0 Camera* → resize small,
+   drag to the lower-right corner (picture-in-picture).
+3. **Sources → + Audio Input Capture** → *AB17X USB Audio*.
+4. **Settings → Output → Recording**: format **MP4**, quality "High", hardware
+   encoder if offered.
+5. **Settings → Video**: Base and Output resolution both **1920x1080**, FPS **30**.
+
+**Test before the real take — do not skip:**
+
+> Record twenty seconds, then play it back **through headphones**.
+> The USB device is currently exposed as an IEC958 digital profile, so confirm it
+> is actually picking up your voice. If the waveform stays flat, switch the Audio
+> Input Capture source to the built-in analog mic, or change the USB device's
+> profile in GNOME Settings → Sound → Input.
+
+Watch the audio meter while speaking: peaks should sit in the **yellow**, never
+touching red. Too quiet is fixable in editing; clipping is not.
+
+**Recording the eight blocks:** keep one scene, and simply stop/start recording
+between blocks. OBS writes a separate file per take, which is exactly what you
+want for editing.
 
 ### Audio and video
 - **Audio matters more than video.** Use a lavalier mic or headset mic, record in a closed room, switch off fans and air-conditioning. Echo and background noise ruin a pitch faster than anything else.
