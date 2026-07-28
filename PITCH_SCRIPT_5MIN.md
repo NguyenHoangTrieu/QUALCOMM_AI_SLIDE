@@ -1,156 +1,149 @@
-# DrowsyGuard — Script quay video thuyết trình 5 phút
+# DrowsyGuard — 5-Minute Video Pitch Script
 
-Deck: `main.pdf` (31 slide). Trong 5 phút chỉ dùng **10 slide trụ cột**.
+**Team ML_IoT_Love50** · Qualcomm Future Makers: Hack The Challenge 2026
+Deck: `main.pdf` (31 slides) — this script uses only the **10 core slides**.
 
-> **Khác biệt cốt lõi so với thuyết trình trực tiếp:** video là một chiều — giám khảo
-> **không hỏi lại được**. Mọi nghi ngờ kỹ thuật mà họ có trong đầu, nếu không được trả
-> lời ngay trong video, sẽ trở thành điểm trừ âm thầm. Vì vậy script này đã **gài sẵn
-> hai câu phòng thủ quan trọng nhất** vào đúng mạch nói:
-> - *"Chip không có NPU lớn, YOLO chạy nổi không?"* → đặt ở đoạn TRL (phút 3:20)
-> - *"Báo động giả thì sao?"* → đặt ở đoạn thang cảnh báo (phút 2:20)
+> **Why this script is built the way it is.** A recorded video is one-way: the judges
+> **cannot ask questions**. Any technical doubt left unanswered becomes a silent
+> deduction. So the two objections most likely to form in a judge's mind are
+> **answered inside the script itself**:
+> - *"No large NPU on that chip — can YOLO really run?"* → answered at **3:00**
+> - *"What about false alarms?"* → answered at **2:05**
+>
+> Raising and resolving your own weak points is stronger than waiting to be asked.
 
 ---
 
-## 1. Bản đồ thời gian
+## 1. Timing map
 
-| Thời gian | Slide | Thông điệp cần đọng lại |
+| Time | Slide | The one thing that must land |
 |---|---|---|
-| 0:00–0:30 | 1 → 4 | Buồn ngủ khi lái giết người: 3 giây = 100 mét không ai lái |
-| 0:30–1:00 | 6 | Giải pháp hiện có: đắt, cần mạng, xâm phạm riêng tư |
-| 1:00–1:35 | 8 → 10 | Sản phẩm là gì, chạy 4 bước hoàn toàn tại chỗ |
-| 1:35–2:05 | 11 | Vì sao đúng Arduino UNO Q — kiến trúc hai não |
-| 2:05–2:45 | 12 | Cảnh báo leo thang **+ phòng thủ báo động giả** |
-| 2:45–3:40 | 16 → 17 | TRL 4, không bắt đầu từ số 0 **+ phòng thủ FPS** |
-| 3:40–4:15 | 25 → 26 | Fleet trước, rồi mọi ngành cần tỉnh táo |
-| 4:15–5:00 | 30 | Tóm tắt 4 tiêu chí + lời đề nghị + chốt |
+| 0:00–0:30 | 1 → 4 | Drowsy driving kills: 3 seconds = 100 metres with nobody driving |
+| 0:30–1:00 | 6 | Existing solutions: expensive, need a network, invade privacy |
+| 1:00–1:35 | 8 → 10 | What the product is; four steps, all running locally |
+| 1:35–2:05 | 11 | Why the Arduino UNO Q specifically — the dual-brain fit |
+| 2:05–2:45 | 12 | Escalating alert **+ false-alarm defence** |
+| 2:45–3:40 | 16 → 17 | TRL 4, not starting from zero **+ performance defence** |
+| 3:40–4:15 | 25 → 26 | Fleets first, then every alertness-critical industry |
+| 4:15–5:00 | 30 | Four criteria summarised + the ask + emotional close |
 
-**Nguyên tắc:** mỗi slide tối đa 2 câu. Không đọc chữ trên slide.
+**Rule:** two sentences per slide, maximum. Never read the slide aloud.
 
 ---
 
-## 2. Script tiếng Việt (~730 từ ≈ 5 phút)
+## 2. The script (~730 words ≈ 5:00)
 
 ### [0:00] Slide 1 — Title
-> Chúng em là đội **ML IoT**, với dự án **DrowsyGuard**. Xin bắt đầu bằng một con số.
+> We are team **ML_IoT_Love50**, and this is **DrowsyGuard**.
+> Let me start with a number.
 
-*(Chuyển slide 4 ngay, không giới thiệu dài dòng)*
+*(Cut straight to slide 4 — no long introductions)*
 
 ### [0:08] Slide 4 — Drowsy driving is a silent killer
-> Một tài xế ngủ gật **ba giây** ở tốc độ 90 km/h nghĩa là chiếc xe đã đi **một trăm mét trong trạng thái không ai lái**.
+> A driver who micro-sleeps for **three seconds** at ninety kilometres an hour travels **one hundred metres with nobody driving**.
 >
-> Ba giây đó là ranh giới giữa một chuyến hàng bình thường và một tai nạn thảm khốc. Rủi ro cao nhất rơi vào tài xế đường dài, xe khách và tài xế công nghệ — những người chạy đêm, chạy ca dài.
+> *(pause one beat)*
+>
+> Those three seconds separate a normal delivery from a fatal crash. The risk is highest for long-haul, coach and ride-hailing drivers — the people who drive at night, on long shifts.
 
 ### [0:30] Slide 6 — Existing solutions leave a gap
-> Vấn đề này đã có giải pháp — nhưng chỉ dành cho người giàu. Hệ thống cảnh báo tài xế chỉ có trên xe hạng sang. Camera hành trình đám mây thì cần Internet, có độ trễ, và gửi hình ảnh khuôn mặt tài xế lên server.
+> This problem is already solved — but only for the wealthy. Driver monitoring ships on premium cars. Cloud dashcams need a network, they add latency, and they upload the driver's face to a server.
 >
-> Khoảng trống rất rõ: **chưa có thiết bị giá rẻ, gắn thêm được cho mọi xe, chạy hoàn toàn offline và không thu thập dữ liệu.**
+> The gap is clear: **there is no low-cost add-on that fits any vehicle, runs fully offline, and collects nothing.**
 
 ### [1:00] Slide 8 — DrowsyGuard in one line
-> Đó là **DrowsyGuard**. Một thiết bị nhỏ đặt trên taplo, camera hướng vào tài xế, phát hiện buồn ngủ **ngay trên thiết bị**, và đánh thức tài xế trước khi quá muộn.
+> That is **DrowsyGuard**. A small device on the dashboard, a camera facing the driver, detecting drowsiness **on the edge**, and waking the driver before it is too late.
 
 ### [1:15] Slide 10 — How it works
-> Bốn bước: camera thu hình, AI phân tích, chấm điểm mức buồn ngủ từ 0 đến 3, rồi kích hoạt cảnh báo.
+> Four steps: capture the face, analyse it, score the drowsiness level from zero to three, then act.
 >
-> **Cả bốn bước đều chạy cục bộ.** Không khung hình nào rời khỏi thiết bị — nên hệ thống phản ứng tức thì, và khuôn mặt tài xế không bị gửi đi đâu cả.
+> **All four steps run locally.** No frame ever leaves the unit — so the system reacts instantly, and the driver's face is never uploaded anywhere.
 
-### [1:35] Slide 11 — Architecture
-> Và đây là lý do chúng em chọn **Arduino UNO Q**. Board này có hai bộ não: **Linux trên Qualcomm QRB2210** chạy YOLO nhận diện mắt và khuôn mặt; **vi điều khiển STM32U585** lo phần điều khiển thời gian thực dưới một trăm mili-giây.
+### [1:35] Slide 11 — System architecture
+> And this is exactly why we chose the **Arduino UNO Q**. The board has two brains. **Linux on the Qualcomm QRB2210** runs YOLO for eye and face detection. The **STM32U585 microcontroller** handles real-time control in under one hundred milliseconds.
 >
-> Bài toán của chúng em cần đúng hai thứ đó, trong đúng một board. Đây không phải chọn phần cứng cho có — nó khớp với kiến trúc của bài toán.
+> Our problem needs precisely those two things, on one board. This is not hardware chosen for decoration — it matches the architecture of the problem.
 
-### [2:05] Slide 12 — Escalating alert ladder *(+ phòng thủ báo động giả)*
-> Cảnh báo được thiết kế **leo thang bốn mức**: bíp nhẹ, rồi rung ghế và quạt gió, cuối cùng là còi lớn, bật đèn khẩn cấp và gửi SOS kèm tọa độ.
+### [2:05] Slide 12 — Escalating alert ladder *(+ false-alarm defence)*
+> The alert **escalates through four levels**: a soft beep, then seat vibration and cold air, and finally a loud alarm with hazard lights and an SOS with GPS coordinates.
 >
-> Thiết kế leo thang cũng chính là cách chúng em xử lý **báo động giả**. Quyết định không dựa vào một khung hình đơn lẻ, mà dựa trên **PERCLOS — tỷ lệ thời gian mắt nhắm tích lũy trên cửa sổ sáu mươi giây**. Mức một chỉ là một tiếng bíp nhẹ, nên nếu có sai cũng không gây hại. Và tài xế luôn có nút **"Tôi vẫn tỉnh"** để xác nhận, dữ liệu đó dùng để cá nhân hóa ngưỡng cho từng người.
+> That escalation is also how we handle **false alarms**. The decision never rests on a single frame — it is based on **PERCLOS, the accumulated eye-closure ratio over a sixty-second window**. Level one is only a soft beep, so an error costs nothing. And the driver always has the **"I am awake"** button to acknowledge — which we then use to personalise their threshold.
 
-### [2:45] Slide 16 — TRL ⭐
-> Về mức độ sẵn sàng kỹ thuật: hiện chúng em ở **TRL 4 — đã kiểm chứng trong phòng lab**. Mục tiêu đến Hack-Day là **TRL 6 — chạy thật trong cabin xe**.
+### [2:45] Slide 16 — Technology Readiness Level ⭐
+> On technical readiness: today we are at **TRL 4 — validated in the lab**. Our target for Hack-Day is **TRL 6 — running in a real vehicle cabin**.
 
-### [3:00] Slide 17 — What already works today *(+ phòng thủ hiệu năng)*
-> Và chúng em **không bắt đầu từ con số không**. Bốn thứ đã có:
+### [3:00] Slide 17 — What already works today *(+ performance defence)*
+> And we are **not starting from zero**. Four things are already in place.
 >
-> Một — bài toán này **đã được chứng minh chạy được trên chính UNO Q**: Arduino App Lab có sẵn bộ nhận diện khuôn mặt on-camera trên board này.
-> Hai — **dữ liệu đã có**, các bộ ảnh gán nhãn trạng thái mắt, sẵn sàng cho YOLO.
-> Ba — **toolchain đã cài xong**: Arduino CLI, Flasher CLI và Qualcomm AI Hub.
-> Bốn — **logic cảnh báo đã đặc tả xong**, gồm ngưỡng PERCLOS và bốn mức.
+> **One** — this workload is **already proven on the UNO Q itself**: Arduino App Lab ships a working on-camera face detector on this exact board.
+> **Two** — **the datasets are secured**: labelled eye-state images, YOLO-ready.
+> **Three** — **the toolchain is installed**: Arduino CLI, Flasher CLI, and the Qualcomm AI Hub client.
+> **Four** — **the alert logic is specified**: PERCLOS thresholds and the four levels.
 >
-> Về hiệu năng, chúng em ý thức rõ QRB2210 không có NPU lớn, nên dùng **YOLO bản nano lượng tử hóa INT8**. Bài toán này cũng không đòi ba mươi khung hình mỗi giây — vì PERCLOS tính trên cửa sổ sáu mươi giây, nên **năm đến mười FPS là đủ**. Việc đầu tiên khi nhận board là đo FPS thật và báo cáo con số.
+> On performance, we know the QRB2210 has no large NPU, so we use a **YOLO nano backbone quantized to INT8**. And this problem does not demand thirty frames per second — because PERCLOS runs on a sixty-second window, **five to ten frames per second is enough**. Our first task with the board is to measure the real figure and report it.
 >
-> Thứ chúng em còn thiếu chính xác là **phần cứng** — để đo hiệu năng thật, đấu dây cơ cấu chấp hành và đóng vòng lặp trong cabin.
+> What we are missing is exactly the **hardware** — to measure real performance, wire the actuators, and close the loop inside a cabin.
 
-### [3:40] Slide 25 → 26 — Application domains
-> Thị trường đầu tiên là **đội xe thương mại**: logistics, xe khách, taxi công nghệ. Họ đã chi tiền cho an toàn và telematics, mua theo số lượng, và đo được hiệu quả bằng số vụ tai nạn tránh được.
+### [3:40] Slides 25 → 26 — Application domains
+> Our first market is **commercial fleets**: logistics, coach operators, ride-hailing. They already pay for safety and telematics, they buy in volume, and they measure the return directly in incidents avoided.
 >
-> Nhưng lõi công nghệ đi xa hơn nhiều: vận hành máy công nghiệp, lái tàu, thủy thủ trực ca, xe tải mỏ. **Bất cứ đâu con người buộc phải tỉnh táo** — chỉ đổi cách gắn thiết bị và hành động ở mức ba.
+> But the core technology travels much further — heavy machinery operators, train drivers, ship watchkeepers, mine haul trucks. **Anywhere a human being must stay alert.** Only the mounting and the level-three action change.
 
 ### [4:15] Slide 30 — In summary
-> Tóm lại. **Vấn đề** có thật và chết người. **Sản phẩm** phát hiện tại chỗ, cảnh báo dưới hai trăm mili-giây, không cần mạng, không đánh đổi riêng tư. **Mức độ sẵn sàng** là TRL 4 với các khối đã được chứng minh. **Lĩnh vực áp dụng** bắt đầu từ đội xe rồi lan sang mọi ngành cần sự tỉnh táo.
+> To summarise. The **problem** is real and lethal. The **product** detects on-device and alerts in under two hundred milliseconds, with no network and no privacy cost. Our **technical readiness** is TRL 4, built on blocks that are already proven. The **application domains** start with fleets and extend to every alertness-critical industry.
 >
-> Điều chúng em xin là **board Arduino UNO Q cho mượn, quyền truy cập SDK Qualcomm, và sự đồng hành của kỹ sư Qualcomm** — để biến một pipeline đã kiểm chứng thành nguyên mẫu chạy thật trong cabin trước ngày mười sáu tháng Tám.
+> What we ask for is the **loaned Arduino UNO Q, access to Qualcomm's SDKs, and mentorship from Qualcomm engineers** — to turn a validated pipeline into a working in-cabin prototype by the sixteenth of August.
 
-### [4:45] Chốt
-> Ba giây ngủ gật là một trăm mét không ai lái. Chúng em muốn giành lại ba giây đó.
+### [4:45] Close
+> Three seconds of micro-sleep is one hundred metres with nobody driving. We want to win those three seconds back.
 >
-> **Xin cảm ơn ban giám khảo đã lắng nghe.**
+> **Thank you for watching.**
 
 ---
 
-## 3. English version (~720 words)
+## 3. Speaking the numbers
 
-**[0:00] Slide 1** — We are team **ML IoT**, and this is **DrowsyGuard**. Let me start with a number.
+Non-native delivery breaks most often on numbers. Say them exactly like this:
 
-**[0:08] Slide 4** — A driver who micro-sleeps for **three seconds** at 90 km/h travels **one hundred metres with nobody driving**. Those three seconds separate a normal delivery from a fatal crash. The highest risk falls on long-haul, coach and ride-hailing drivers — the people who drive at night, on long shifts.
-
-**[0:30] Slide 6** — This problem is already solved — but only for the wealthy. Driver monitoring exists on premium cars. Cloud dashcams need a network, add latency, and upload the driver's face to a server. The gap is clear: **there is no low-cost add-on that fits any vehicle, runs fully offline, and collects nothing.**
-
-**[1:00] Slide 8** — That is **DrowsyGuard**: a small dashboard device with a camera facing the driver, detecting drowsiness **on the edge**, and waking the driver before it is too late.
-
-**[1:15] Slide 10** — Four steps: capture, analyse, score the drowsiness level from 0 to 3, then act. **All four run locally.** No frame ever leaves the unit — so the system reacts instantly, and the driver's face is never uploaded.
-
-**[1:35] Slide 11** — This is exactly why we chose the **Arduino UNO Q**. It has two brains: **Linux on the Qualcomm QRB2210** runs YOLO for eye and face detection; the **STM32U585 microcontroller** handles real-time control in under one hundred milliseconds. Our problem needs precisely those two things, on one board. The hardware is not decoration — it matches the architecture of the problem.
-
-**[2:05] Slide 12** — The alert **escalates through four levels**: a soft beep, then seat vibration and cold air, then a loud alarm with hazard lights and an SOS with GPS.
-
-That escalation is also how we handle **false alarms**. The decision never rests on a single frame — it is based on **PERCLOS, the accumulated eye-closure ratio over a sixty-second window**. Level one is only a soft beep, so an error costs nothing. And the driver always has the **"I am awake"** button to acknowledge, which we then use to personalise their threshold.
-
-**[2:45] Slide 16** — On technical readiness: we are at **TRL 4 — validated in the lab**. Our target for Hack-Day is **TRL 6 — running in a real cabin**.
-
-**[3:00] Slide 17** — And we are **not starting from zero**. Four things are already in place. One — this workload is **already proven on the UNO Q itself**: Arduino App Lab ships a working on-camera face detector on this board. Two — **the datasets are secured**, labelled eye-state images, YOLO-ready. Three — **the toolchain is installed**: Arduino CLI, Flasher CLI and Qualcomm AI Hub. Four — **the alert logic is specified**, with PERCLOS thresholds and the four levels.
-
-On performance, we know the QRB2210 has no large NPU, so we use a **YOLO nano backbone quantized to INT8**. This problem also does not demand thirty frames per second — because PERCLOS runs on a sixty-second window, **five to ten FPS is enough**. Our first task with the board is to measure the real figure and report it.
-
-What we are missing is exactly the **hardware** — to measure real performance, wire the actuators, and close the loop in a cabin.
-
-**[3:40] Slides 25–26** — Our first market is **commercial fleets**: logistics, coaches, ride-hailing. They already pay for safety and telematics, they buy in volume, and they measure the return in incidents avoided. But the core travels much further — heavy machinery operators, train drivers, ship watchkeepers, mine haul trucks. **Anywhere a human must stay alert.** Only the mounting and the level-three action change.
-
-**[4:15] Slide 30** — To summarise. The **problem** is real and lethal. The **product** detects on-device and alerts in under two hundred milliseconds, with no network and no privacy cost. Our **readiness** is TRL 4 with proven building blocks. The **domains** start with fleets and extend to every alertness-critical industry.
-
-What we ask for is the **loaned Arduino UNO Q, Qualcomm SDK access and engineer mentorship** — to turn a validated pipeline into a working in-cabin prototype by the sixteenth of August.
-
-**[4:45]** — Three seconds of micro-sleep is one hundred metres with nobody driving. We want to win those three seconds back. **Thank you for watching.**
+| Written | Say it as |
+|---|---|
+| 90 km/h | "ninety kilometres an hour" |
+| 100 m | "one hundred metres" |
+| 0–3 | "zero to three" |
+| <100 ms | "under one hundred milliseconds" |
+| <200 ms | "under two hundred milliseconds" |
+| 60-second window | "sixty-second window" |
+| 5–10 FPS | "five to ten frames per second" |
+| INT8 | "int-eight" |
+| TRL 4 / TRL 6 | "T-R-L four" / "T-R-L six" |
+| QRB2210 | "Q-R-B twenty-two ten" |
+| STM32U585 | "S-T-M thirty-two U five-eight-five" |
+| 16 August | "the sixteenth of August" |
+| ML_IoT_Love50 | "M-L I-o-T Love Fifty" |
 
 ---
 
-## 4. Hướng dẫn quay video
+## 4. Recording guide
 
-### Kỹ thuật quay
-- **Âm thanh quan trọng hơn hình.** Dùng mic cài áo hoặc tai nghe có mic, quay trong phòng kín, tắt quạt/điều hòa. Tiếng vọng và tiếng ồn làm hỏng video nhanh hơn bất cứ thứ gì.
-- **Bố cục:** ghi màn hình slide toàn khung, chèn khung nhỏ webcam người nói ở góc (picture-in-picture). Giám khảo cần thấy mặt người thuyết trình — tạo niềm tin.
-- **Ánh sáng:** nguồn sáng phía trước mặt, không ngồi ngược sáng cửa sổ.
-- **Quay từng đoạn theo mục.** Đừng cố quay một mạch 5 phút. Quay 8 đoạn theo bảng thời gian, sai đoạn nào quay lại đoạn đó rồi ghép — nhanh hơn nhiều.
+### Audio and video
+- **Audio matters more than video.** Use a lavalier mic or headset mic, record in a closed room, switch off fans and air-conditioning. Echo and background noise ruin a pitch faster than anything else.
+- **Layout:** full-screen slides with a small webcam window in a corner (picture-in-picture). Judges need to see a face — it builds trust.
+- **Lighting:** light source in front of you, never sit with a window behind you.
+- **Record in segments.** Do not attempt one continuous five-minute take. Record the eight blocks from the timing map separately, re-shoot only the block you fluff, then edit them together. Far faster.
 
-### Nhịp nói
-- **Nói chậm hơn cảm giác tự nhiên khoảng 10%.** Video không có phản hồi khán giả nên người nói hay bị cuốn nói nhanh.
-- **Dừng một nhịp sau câu "một trăm mét không ai lái"** — để con số ngấm.
-- **Nhìn vào camera**, không nhìn slide. Dán script cạnh webcam nếu cần.
+### Delivery
+- **Speak about ten percent slower than feels natural.** With no audience feedback, presenters always drift faster than they think.
+- **Pause one full beat** after *"one hundred metres with nobody driving"* — let the number land.
+- **Look into the camera lens**, not at the slides. Tape the script next to the webcam if needed.
+- Emphasise the phrase **"we are not starting from zero"** — this is the single most persuasive line in the pitch. The judges are choosing ten teams to hand hardware to; they are looking for the teams who will actually ship.
 
-### Dựng
-- Chuyển slide **đúng lúc nói tới**, không chuyển trước.
-- Nếu có nguyên mẫu, chèn **5–10 giây B-roll** cảnh thiết bị/đèn LED đổi màu vào đoạn slide 12. Video có cảnh thật luôn thắng video chỉ có slide.
-- Thêm **phụ đề** — giám khảo có thể xem không bật loa.
-- Kiểm tra tổng thời lượng: **không vượt 5:00**. Nếu dư, cắt bớt đoạn Application domains (4:15) xuống 2 câu.
+### Editing
+- Change slides **on the sentence that mentions them**, never before.
+- If you have any prototype, cut in **five to ten seconds of B-roll** — the device, an LED changing colour — over the slide 12 section. A video with real footage beats a video of slides every time.
+- Add **subtitles**. Judges may watch with the sound off.
+- Check the total: **do not exceed 5:00**. If you run long, cut the Application-domains block at 3:40 down to two sentences.
 
-### Phân vai nếu quay nhóm
-- **Ưu tiên một người dẫn toàn bộ** cho liền mạch.
-- Nếu bắt buộc đủ 4 thành viên xuất hiện: chia theo **4 phần lớn** (Vấn đề / Sản phẩm / Sẵn sàng kỹ thuật / Lĩnh vực áp dụng), mỗi người một phần trọn vẹn — đừng chia nhỏ hơn.
-- Người cuối cùng nói phần tóm tắt và lời đề nghị.
+### If all four members must appear
+- **One narrator throughout is best** for a continuous thread.
+- If every member must be on camera, split by the **four major sections** — Problem / Product / Technical Readiness / Application Domains — one member per complete section. Do not subdivide further.
+- The last speaker delivers the summary and the ask.
