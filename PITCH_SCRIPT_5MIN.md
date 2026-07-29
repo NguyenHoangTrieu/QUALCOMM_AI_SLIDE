@@ -150,31 +150,18 @@ Detected hardware: webcam **Chicony USB2.0 Camera**, mics **AB17X USB Audio** (d
    encoder if offered.
 5. **Settings → Video**: Base and Output resolution both **1920x1080**, FPS **30**.
 
-**Microphone gain — already applied on this machine:**
+**Microphone:** both the USB mic and the built-in mic were verified to capture real
+audio, and both sit at their normal system levels. Adjust the level **inside OBS**
+rather than system-wide — right-click the audio source → **Filters** → add **Gain**,
+and add **Noise Suppression (RNNoise)** on the same source to remove room hum.
 
-Both microphones were verified to capture real audio. Current levels:
-USB **150%**, built-in **130%**, ALSA capture 79% with +20 dB mic boost (saved across reboots).
+Useful checks if something sounds wrong:
 
 ```bash
-# check what the current input device and level are
-wpctl status | sed -n '/Sources:/,/Filters:/p'
-wpctl get-volume @DEFAULT_AUDIO_SOURCE@
-
-# raise / lower the default mic  (-l lifts the 100% ceiling)
-wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SOURCE@ 1.5    # 150%
-wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SOURCE@ 1.8    # louder, if still quiet
-wpctl set-mute   @DEFAULT_AUDIO_SOURCE@ 0             # make sure it is unmuted
-
-# hardware gain for the built-in mic (card 0)
-amixer -c 0 sset 'Capture' 80%
-amixer -c 0 sset 'Mic Boost' 2        # 0-3, each step ≈ +10 dB
-sudo alsactl store                    # persist across reboot
+wpctl status | sed -n '/Sources:/,/Filters:/p'   # which input is default
+wpctl get-volume @DEFAULT_AUDIO_SOURCE@          # current level
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0          # unmute
 ```
-
-> **Do not overdo it.** Past roughly 180% you amplify hiss more than voice. If your
-> voice is still weak, move the mic closer — that always beats adding gain.
-> Better still, fine-tune inside OBS: **right-click the audio source → Filters → + Gain**,
-> and add **+ Noise Suppression (RNNoise)** on the same source to kill room hum.
 
 **Test before the real take — do not skip:**
 
